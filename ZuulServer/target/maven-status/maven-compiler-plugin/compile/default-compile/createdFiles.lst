@@ -1,3 +1,1 @@
-org\exampledriven\zuul\filter\StaticFilter.class
-org\exampledriven\zuul\filter\AccessLogFilter.class
-org\exampledriven\zuul\SpringCloudZuulExampleApplication.class
+com\application\SpringCloudZuulExampleApplication.class

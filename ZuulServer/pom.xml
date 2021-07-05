@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.exampledriven</groupId>
-    <artifactId>zuul-server</artifactId>
+    <artifactId>ZuulServer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Zuul server</name>
+    <name>ZuulServer</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -43,12 +43,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>2.4.7</version>
         </dependency>
 
     </dependencies>
