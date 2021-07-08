@@ -1,23 +1,23 @@
 
-**Spring Boot Swagger Zuul and Eureka 
+**Spring Boot Swagger Zuul and Eureka **
 ------------------------------
 
 **Documentazione nice to read**
 
-**EUREKA
+**EUREKA**
 https://www.baeldung.com/spring-cloud-netflix-eureka
 
-**GATEWAY AND LOAD BALANCING WITH ZUUL
+**GATEWAY AND LOAD BALANCING WITH ZUUL**
 https://www.baeldung.com/zuul-load-balancing
 
-**GIT DOCUMENTATION
+**GIT DOCUMENTATION**
 https://git-scm.com/doc
 
-**WHAT IS SWAGGER
+**WHAT IS SWAGGER**
 https://swagger.io/docs/specification/2-0/what-is-swagger/
 
 
-**Running Attached Project :
+**Running Attached Project :**
 
 Set environment with eclipse
 1. download Git
@@ -28,7 +28,7 @@ Set environment with eclipse
 
 You need postgresql file patch starter
 
-**EUREKA SERVER 
+**EUREKA SERVER **
 Start eureka server mono node
 1. Run spring boot application without profile
 
@@ -48,7 +48,7 @@ Test Eureka cluster
 3. Check URL http://127.0.0.4:8764 after start peer3
 
 
-**ZUUL
+**ZUUL**
 Start Zuul 
 1. Run spring boot project ZuulServer application with profile "peer1"
 
@@ -56,13 +56,13 @@ Test start Zuul
 1. Access through the api gateway zuul-server (http://localhost:9090) 
 
 
-**START SERVICES EUREKA CLIENT
+**START SERVICES EUREKA CLIENT**
 1. Run spring boot project TestService application which will expose test/helloworld service
 2. Test it with get http request http://localhost:9090/api/test-service/test/helloWorld
 3. Run spring boot project AnagraficaService application which will expose ruoli/getRuoli service
 4. Test it with get http request http://localhost:9090/api/anagrafica-service/ruoli/getListRuoli
 
 
-**SWAGGER
+**SWAGGER**
 1. Check by swagger http://localhost:9090/api/anagrafica-service/swagger-ui.html#!/
 
