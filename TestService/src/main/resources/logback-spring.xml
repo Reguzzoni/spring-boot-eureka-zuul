@@ -10,7 +10,7 @@
 
 	<appender name="SAVE-TO-FILE"
 		class="ch.qos.logback.core.FileAppender">
-		<file>${LOG_PATH}/AnagraficaService.log</file>
+		<file>${LOG_PATH}/TestService.log</file>
 		<encoder
 			class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<Pattern>
