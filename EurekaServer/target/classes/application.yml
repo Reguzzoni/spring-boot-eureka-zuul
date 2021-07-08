@@ -1,7 +1,10 @@
+# ---------------------------- SPRING ----------------------------
 spring:
   profiles: default
 server:
   port: 8761  
+  
+# ---------------------------- EUREKA ----------------------------
 eureka:
   environment: local
   instance:
@@ -11,57 +14,83 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/    
- 
+
+# ---------------------------- EUREKA SERVER INSTANCES ---------------------------- 
+---
+peer1:
+  name: peer1
+  address: 127.0.0.2
+  port: 8762
+  
+peer2:
+  name: peer2
+  address: 127.0.0.3
+  port: 8763 
+  
+peer3:
+  name: peer3
+  address: 127.0.0.4
+  port: 8764
+  
 ---
 spring:
-  profiles: peer1
+  profiles: peer1 
   application:
     name: eureka-clustered
 server:
-  port: 8762  
+  port: ${peer1.port} 
 eureka:
-  environment: local
+  #environment: local
+  #datacenter: local
   instance:
     securePortEnabled: true
-    hostname: peer-1 
+    preferIpAddress: true 
+    ip-address: ${peer1.address}
+    instance-id: ${peer1.address}:${peer1.port}
   client:
     registerWithEureka: false
     fetchRegistry: false       
     serviceUrl:
-      defaultZone: http://peer2:8763/eureka/,http://peer3:8764/eureka/
+      defaultZone: http://${peer2.address}:${peer2.port}/eureka/,http://${peer3.address}:${peer3.port}/eureka/
  
 ---
 spring:
   profiles: peer2
   application:
-    name: eureka-clustered   
+    name: eureka-clustered
 server:
-  port: 8763
+  port: ${peer2.port} 
 eureka:
-  environment: local
+  #environment: local
+  #datacenter: local
   instance:
     securePortEnabled: true
-    hostname: peer2      
+    preferIpAddress: true 
+    ip-address: ${peer2.address}
+    instance-id: ${peer2.address}:${peer2.port}
   client:
     registerWithEureka: false
     fetchRegistry: false       
     serviceUrl:
-      defaultZone: http://peer1:8762/eureka/,http://peer3:8764/eureka/
+      defaultZone: http://${peer1.address}:${peer1.port}/eureka/,http://${peer3.address}:${peer3.port}/eureka/
  
 ---
 spring:
-  profiles: peer3
+  profiles: peer3 
   application:
-    name: eureka-clustered  
+    name: eureka-clustered
 server:
-  port: 8764
+  port: ${peer3.port} 
 eureka:
-  environment: local
+  #environment: local
+  #datacenter: local
   instance:
     securePortEnabled: true
-    hostname: peer3    
+    preferIpAddress: true 
+    ip-address: ${peer3.address}
+    instance-id: ${peer3.address}:${peer3.port}
   client:
     registerWithEureka: false
-    fetchRegistry: false   
+    fetchRegistry: false       
     serviceUrl:
-      defaultZone: http://peer1:8762/eureka/,http://peer2:8763/eureka/
+      defaultZone: http://${peer1.address}:${peer1.port}/eureka/,http://${peer2.address}:${peer2.port}/eureka/

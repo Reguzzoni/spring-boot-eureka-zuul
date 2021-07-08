@@ -1,0 +1,3 @@
+node\NodeserviceApplication.class
+node\controller\NodeController.class
+node\model\Node.class

@@ -43,21 +43,21 @@ CD %directoryEurekaServer%
 START "peer3" cmd /T:0L /k mvn clean install spring-boot:run -Drun.profiles=peer3 -Denvironment=%env%
 ECHO Started EUREKA SERVER 3!
 
-:: wait 10 seconds
-timeout /t 10
-
-ECHO Start ZUUL
-CD %directoryZuulServer%
-START "zuul" cmd /T:0D /k mvn clean install spring-boot:run
-ECHO Start ZUUL!
-
-:: wait 10 seconds
-timeout /t 10
-
-ECHO Start NODE SERVICE
-CD %directoryNodeService%
-START "node service" cmd /T:0E /k mvn clean install spring-boot:run
-ECHO Start NODE SERVICE!
+:::: wait 10 seconds
+::timeout /t 10
+::
+::ECHO Start ZUUL
+::CD %directoryZuulServer%
+::START "zuul" cmd /T:0D /k mvn clean install spring-boot:run
+::ECHO Start ZUUL!
+::
+:::: wait 10 seconds
+::timeout /t 10
+::
+::ECHO Start NODE SERVICE
+::CD %directoryNodeService%
+::START "node service" cmd /T:0E /k mvn clean install spring-boot:run
+::ECHO Start NODE SERVICE!
 
 CD %directoryWorkspace%
 
